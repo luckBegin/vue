@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+<div class="container">
+	<div class="wrapper">
+		<div class="resetTime">
+			<div class="text">
+				倒<br/>
+				计<br/>
+				时<br/>
+			</div>
+			<div id="time" onclick="send({type:'start' , 'info' : { time : 21 , award : 10 } })">
+				开始
+			</div>
+		</div>
+
+		<div class="top">
+			<div class="section">
+				<img src="./img/1.png" alt="" class="crown">
+				<img src="./img//head.png" alt="" class="portrail">
+				<div class="perName">
+					XXX
+				</div>
+				<div class="score">
+					0
+				</div>
+			</div>
+
+			<div class="section" style="">
+				<img src="./img/1.png" alt="" class="crown">
+				<img src="./img//head.png" alt="" class="portrail">
+				<div class="perName">
+					XXX
+				</div>
+				<div class="score">
+					0
+				</div>
+			</div>
+
+			<div class="section" style="">
+				<img src="./img/1.png" alt="" class="crown">
+				<img src="./img//head.png" alt="" class="portrail">
+				<div class="perName">
+					XXX
+				</div>
+				<div class="score">
+					0
+				</div>
+			</div>
+
+			<div class="section" style="">
+				<img src="./img/1.png" alt="" class="crown">
+				<img src="./img//head.png" alt="" class="portrail">
+				<div class="perName">
+					XXX
+				</div>
+				<div class="score">
+					0
+				</div>
+			</div>
+
+			<div class="section">
+				<img src="./img/1.png" alt="" class="crown">
+				<img src="./img//head.png" alt="" class="portrail">
+				<div class="perName">
+					XXX
+				</div>
+				<div class="score">
+					0
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<div class="rank">
+				<div class="rankTitle">
+					6
+				</div>
+				<div class="rankBar">
+					<div class="rankItem">
+
+					</div>
+				</div>
+				<div>
+					<img src="./img//head.png" alt="" class="portrail2">
+				</div>
+				<p class="name">
+					XXX
+				</p>
+			</div>
+
+			<div class="rank">
+				<div class="rankTitle">
+					7
+				</div>
+				<div class="rankBar">
+					<div class="rankItem">
+
+					</div>
+				</div>
+				<div>
+					<img src="./img//head.png" alt="" class="portrail2">
+				</div>
+				<p class="name">
+					XXX
+				</p>
+			</div>
+
+			<div class="rank">
+				<div class="rankTitle">
+					8
+				</div>
+				<div class="rankBar">
+					<div class="rankItem">
+
+					</div>
+				</div>
+				<div>
+					<img src="./img//head.png" alt="" class="portrail2">
+				</div>
+				<p class="name">
+					XXX
+				</p>
+			</div>
+
+			<div class="rank">
+				<div class="rankTitle">
+					9
+				</div>
+				<div class="rankBar">
+					<div class="rankItem">
+
+					</div>
+				</div>
+				<div>
+					<img src="./img//head.png" alt="" class="portrail2">
+				</div>
+				<p class="name">
+					XXX
+				</p>
+			</div>
+
+			<div class="rank">
+				<div class="rankTitle">
+					10
+				</div>
+				<div class="rankBar">
+					<div class="rankItem">
+
+					</div>
+				</div>
+				<div>
+					<img src="./img//head.png" alt="" class="portrail2">
+				</div>
+				<p class="name">
+					XXX
+				</p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+
+var reset = function( data ){
+	var html = '' ;
+	data.forEach( (item , index ) => {
+		html += "<div class='section' style=''>"+
+"				<img src='./img/"+( index + 1 )+".png' alt='' class='crown'>"+
+"				<img src='"+item.img+"' alt='' class='portrail'>"+
+"				<div class='perName'>"+ item.name+
+"				</div>"+
+"				<div class='score'>"+ item.count+
+"				</div>"+
+"			</div>";
+	});
+	if(html == '')
+		document.querySelector(".top").innerHTML = "<div style='color: #cfb37b;'>已无更多人数</div>" ;
+	else
+		document.querySelector(".top").innerHTML = html ;
+};
+var last = function(data){
+	var html = '' ;
+	data.forEach( ( item , index ) => {
+		var width = Math.floor(item.count / 100);
+		html += "<div class='rank'>"+
+"				<div class='rankTitle'>"+ ( index + 5 )+
+"				</div>"+
+"				<div class='rankBar'>"+
+"					<div class='rankItem' style='width :"+ width +"px'>"+
+"					</div>"+
+"				</div>"+
+"				<div>"+
+"				<img src='"+item.img+"' alt='' class='portrail2'>"+
+"				</div>"+
+"				<p class='name'>"+ item.name +
+"				</p>"+
+"			</div>";
+	});
+	document.querySelector(".footer").innerHTML = html ;
+};
+
+var ws = new WebSocket('ws://localhost:3000') ;
+
+
+ws.onopen = () => {
+};
+
+ws.onmessage = msg => {
+	var message = JSON.parse(msg.data) ;
+
+	if(message.action === 'start'){
+		document.querySelector("#time").innerText= message.time ;
+
+		var topFive = message.data.slice(0 ,5);
+		var lastFive = message.data.slice(5,10);
+
+		reset(topFive) ;
+		last(lastFive) ;
+	};
+
+	if(message.action === 'end'){
+		document.querySelector("#time").innerText = "开始" ; 
+
+		var topFive = message.data.slice(0 ,5);
+		var lastFive = message.data.slice(5 ,10);
+
+		reset(topFive) ;
+		last(lastFive) ;
+	};
+};
+
+ws.onclose = function () {
+	console.log('连接已关闭...')
+};
+
+var send = function( data ){
+	if (ws.readyState===1) {
+	    ws.send(JSON.stringify(data));
+	}else{
+	  setTimeout(function(){
+	  	send(data) ;
+	  } , 100);
+	};
+};
+</script>
+</body>
+</html>

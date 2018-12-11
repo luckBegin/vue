@@ -1,0 +1,64 @@
+*{
+	margin:  0 ; 
+	padding:  0;
+}
+.banner{
+	width: 100% ; 
+	height: 540px;
+	background: url("../img/BANNER.png") round ;
+}
+.tip{
+	width: 100% ; 
+	display: flex; 
+	flex-direction:  row;  ; 
+	justify-content: center; 
+	align-items: center;
+}
+.imgList{
+	width:80% ; 
+	margin:  30px auto ;
+	display: flex;
+	flex-direction: row ; 
+	justify-content: flex-start; 
+	align-items: center;
+	flex-wrap: wrap; 
+}
+.imgSection{
+	width: 21% ; 
+	position: relative;
+	margin: 10px 2% ;
+}
+.imgItem{
+	width: 100%;
+	height: auto;
+	display: block;
+}
+#imgupLoad{
+	width:75% ;
+	height: 100% ;
+	opacity: 0px; 
+	position: absolute;
+	top:0px;
+	left: 0px;
+	z-index: 999 ;
+	opacity:  0;
+}
+.delItem{
+	width: 100% ; 
+	height: 100% ;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 2px solid #ccc; 
+	border-radius: 5px;
+	display: none
+}
+.delBtn{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+    height: auto;
+	cursor: pointer;
+
+}
