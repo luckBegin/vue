@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<style>
+*{
+    margin:0px;
+    padding: 0px;
+}
+html , body{
+    width: 100% ; 
+    height: 100% ;
+}
+</style>
+</head>
+<body>
+<canvas id="canvas">
+
+</canvas>
+<script>
+// 需要填充的图片
+var image = new Image();
+image.src = 'http://i10.hoopchina.com.cn/hupuapp/bbs/966/16313966/thread_16313966_20180726164538_s_65949_o_w1024_h1024_62044.jpg?x-oss-process=image/resize,w_800/format,jpg' ;
+
+// 获取canvas元素
+var canvas = document.getElementById("canvas");
+var context = canvas.getContext('2d');
+
+// 设置canvas宽高
+canvas.width = document.body.clientWidth ;
+canvas.height = document.body.clientHeight ;
+
+// 每个粒子的间隔
+gap = 250 ;
+
+// 渲染文字
+var drawText = function(text){
+    context.save()
+    context.font = "650px 微软雅黑 bolder";
+    context.fillStyle = "rgba(168,168,168,1)";
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(text , canvas.width/2 , canvas.height/2);
+    context.restore();
+}
+
+// 获取文字的像素信息
+function getimgData(text){
+
+    drawText(text);
+
+    var imgData = context.getImageData(0,0,canvas.width , canvas.height);
+
+    // 获取到文字像素信息之后清空画布
+    context.clearRect(0,0,canvas.width , canvas.height);
+
+    // 用来存放粒子的数组
+    var dots = [];
+
+    // 对像素进行遍历 36是要填充的图片大小
+    for(var x=0 ; x < imgData.width ; x += 36 ){
+
+        for(var y = 0;y<imgData.height ; y+= 36 ){
+            // 获取图片的alpha
+            var i = ( y * imgData.width + x) * 4 ;
+            // 透明度大于0.5时就可将这个像素点视为文字的一部分
+            if(imgData.data[i] >= 128){
+                // 创建粒子并添加到粒子数组中
+                var dot = new Dot( x + 3 , y + 3 , 0 , 3);
+                dots.push(dot);
+            }
+        }
+    }
+    return dots;
+}
+
+// 粒子类
+var Dot = function(centerX , centerY , centerZ ){
+
+    // 打乱后的坐标
+    this.dx = centerX;
+    this.dy = centerY;
+    this.dz = centerZ;
+
+    // 打乱前的坐标
+    this.z = centerZ;
+    this.x = centerX;
+    this.y = centerY;
+}
+
+// 粒子的绘制方法
+Dot.prototype = {
+    paint:function(){
+
+        context.save();
+
+        context.beginPath();
+
+        var scale = gap/(gap + this.z);
+
+        context.drawImage( image , canvas.width/2 + (this.x-canvas.width/2)*scale , canvas.height/2 + (this.y-canvas.height/2) * scale , 36 , 36 );
+
+        context.restore();
+    }
+};
+// 获取"❤"这个文字的像素信息
+var dots = getimgData("YAG");
+
+//初始化 
+function init(){
+    // 将粒子打乱并进行绘制
+    dots.forEach( (_this) => {
+        _this.x = Math.random()*canvas.width;
+        _this.y = Math.random()*canvas.height;
+        _this.z = Math.random()*gap*2 - gap;
+
+        _this.tx = Math.random()*canvas.width;
+        _this.ty = Math.random()*canvas.height;
+        _this.tz = Math.random()*gap*2 - gap;
+        _this.paint();
+    });
+
+    // 实现动画效果
+    animate();
+};
+
+init();
+
+// 标记动画的方向
+var derection = true ;
+
+// 动画实现
+function animate(){
+    // 开始动画之前先清空画布
+    context.clearRect(0,0,canvas.width , canvas.height);
+
+    // 遍历粒子数组
+    dots.forEach(function(item){
+        var dot = item;
+
+        // direction为true时代表将打乱的粒子组成文字 , 反之则是将组成的文字重新打乱
+        if(derection === true ){
+            // 判断是否组成文字
+            if( Math.abs(dot.dx - dot.x) < 0.1 && Math.abs(dot.dy - dot.y ) < 0.1 && Math.abs(dot.dz - dot.z) < 0.1){
+                derection = false ; 
+            }else{
+                dot.x = dot.x + (dot.dx - dot.x) * 0.04;
+                dot.y = dot.y + (dot.dy - dot.y) * 0.04;
+                dot.z = dot.z + (dot.dz - dot.z) * 0.04;
+            };
+        }else{
+            if (Math.abs(dot.tx - dot.x) < 0.1 && Math.abs(dot.ty - dot.y) < 0.1 && Math.abs(dot.tz - dot.z)<0.1) {
+                derection = true;
+            } else {
+                dot.x = dot.x + (dot.tx - dot.x) * 0.02 ;
+                dot.y = dot.y + (dot.ty - dot.y) * 0.02 ;
+                dot.z = dot.z + (dot.tz - dot.z) * 0.02 ;
+            };
+        };
+
+        // 重新绘制
+        dot.paint();
+    });
+    requestAnimationFrame(animate);
+};
+</script>
+</body>
+</html>

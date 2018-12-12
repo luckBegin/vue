@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+</head>
+<body>
+<script>
+var Particle = function(imgUrl , width ){
+    // 存放图片列表
+    this.imglist = [] ;
+    // 默认图片地址 
+    this.defaultImgUrl= imgUrl ;
+    // 存放默认图片
+    this.defaultImg = null ;
+    // 存放粒子  
+    this.particles = [] ;
+    // 粒子宽高
+    this.particleSize = width ;
+    // 字体大小
+    this.fontSize = fontSize || '650' ;
+
+    //粒子形状
+    this.shape = shape || "react" 
+};
+Particle.prototype.init = function(){
+    var _img = new Image();
+
+    _img.src = this.defaultImgUrl ; 
+
+    var _this = this ;
+    _img.onload = function(){
+
+    };
+
+};
+
+Particle.prototype.entry = function(){
+
+}
+</script>
+</body>
+</html>
