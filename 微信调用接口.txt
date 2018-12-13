@@ -1,0 +1,86 @@
+        ///客户端传入code。获取openID
+        [HttpGet]
+        public HttpResponseMessage GetWdaOpenidbycode(string code)
+
+
+        /// <summary>
+        /// 获取所有用户信息
+        [HttpGet]
+        public HttpResponseMessage GetwdaGetUserinfo()
+
+
+        /// <summary>
+        /// 获取用户是否中奖
+        [HttpGet]
+        public HttpResponseMessage wdaGetUserStatus(string openId)
+
+        /// <summary>
+        /// 更新中奖用户
+        /// </summary>
+        [HttpGet]
+        public HttpResponseMessage wdaUpdzhongjiangUser(string openId)
+
+        /// <summary>
+        /// 打开隐藏用户
+        /// </summary>
+        [HttpGet]
+        public HttpResponseMessage wdaOpenUserFlgTop127()
+
+        /// <summary>
+        /// 关闭赢藏用户
+        /// </summary>
+        [HttpGet]
+        public HttpResponseMessage wdaCloseUserFlgTop127()
+
+
+        /// <summary>
+        /// 插入一张图片
+        /// </summary>
+        [HttpPost]
+        public HttpResponseMessage wdaInsertImg([FromBody]ImgAddress entity)
+
+        /// <summary>
+        /// 获得所有图片
+        /// </summary>
+        [HttpGet]
+        public HttpResponseMessage wdaGetImgAddress()
+
+
+        /// <summary>
+        /// 删除一张图片
+        /// </summary>
+        [HttpGet]
+        public HttpResponseMessage wdaDelImg(string Id)
+
+-----------------------------------------------------------------------------------------------
+  ImgAddress entity模型类
+ public partial class ImgAddress
+    {
+        private string _imgress;
+
+        /// <summary>
+        /// 图片地址
+        /// </summary>
+        public string Imgress
+        {
+            get
+            {
+                return _imgress;
+            }
+
+            set
+            {
+                _imgress = value;
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
