@@ -58,11 +58,6 @@ focallength = 100 ;
 
 var drawText = function(text){
     context.save()
-    // context.font = "650px 微软雅黑 bolder";
-    // context.fillStyle = "rgba(168,168,168,1)";
-    // context.textAlign = "center";
-    // context.textBaseline = "middle";
-    // context.fillText(text , canvas.width/2 , canvas.height/2);
     context.drawImage( image2 , 0 , 0 , image2.width , image2.width );
 
     context.restore();
@@ -122,8 +117,8 @@ function initAnimate(){
     animate();
 };
 
-
 var derection = true ;
+
 function animate(){
     context.clearRect(0,0,canvas.width , canvas.height);
     dots.forEach(function(item , index){
@@ -131,7 +126,7 @@ function animate(){
         if(derection === true ){
             if( Math.abs(dot.dx - dot.x) < 0.1 && Math.abs(dot.dy - dot.y ) < 0.1 && Math.abs(dot.dz - dot.z) < 0.1){
                 setTimeout(function(){
-                    derection = false ;
+                    derection = true ;
                 } , 2000)
             }else{
                 dot.x = dot.x + (dot.dx - dot.x) * 0.04;

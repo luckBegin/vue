@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+	*{
+		padding: 0;
+		margin:  0;
+	}
+	html , body{
+		width: 100% ;
+		height: 100% ;
+	}
+</style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+var wWidth = document.body.clientWidth ;
+var wHeight = document.body.clientHeight ;
+
+var image = new Image() ;
+image.src = './baixing.jpg' ;
+
+var size = 15 ;
+
+var gap = 5 ;
+
+var can = document.getElementById("canvas") ;
+
+can.width = wWidth ;
+can.height = wHeight ;
+
+var ctx = can.getContext("2d") ;
+
+var dots = [] ;
+
+var getImageData = function(data){
+	var dots = [] ;
+
+	for(let x = 0 ; x < data.width ; x += size ){
+		for(let y = 0 ; y < data.height ; y += size ){
+			let alpha = ( y * data.width + x)
+			if(alpha != 255){
+				let dot = new Dot( x , y , 0) ;
+				dots.push(dot) ;
+			};
+		};
+	};
+
+	return dots ;
+};
+
+
+var Dot = function(x , y , z){
+	this.x = x ;
+	this.y = y ;
+	this.z = z ;
+
+	this.ox = 0 ;
+	this.oy = 0 ;
+	this.oz = 0 ;
+};
+Dot.prototype.paint = function(){
+	ctx.save();
+
+	ctx.beginPath();
+
+	ctx.arc(this.x , this.y  , 1 , 0 , 2*Math.PI);
+
+	ctx.fillStyle = "rgba(50,50,50,0.4)";
+
+	ctx.fill()
+
+	ctx.restore();
+};
+
+var init = function(){
+	dots.forEach( item => {
+		item.paint() ;
+	});
+};
+
+image.onload = function(){
+
+	ctx.drawImage(image , 0 , 0) ;
+
+	ctx.clearRect(0 , 0 , wWidth , wHeight) ;
+	var imageData = ctx.getImageData( 0 , 0 , wWidth , wHeight ) ;
+
+	dots = getImageData(imageData) ;
+
+	init() ;
+};
+</script>
+</body>
+</html>

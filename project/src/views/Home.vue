@@ -2,12 +2,13 @@
   <div class="home">
     <img src="../assets/sign.png" class='sign' @click = 'sign()'>
   </div>
+  
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import HelloWorld from '@/components/HelloWorld.vue';
+import { service } from '@/service/service.js';
 export default {
   name: 'home',
   components: {
@@ -15,7 +16,8 @@ export default {
   },
   methods : {
     sign(){
-      console.log(axios) ;
+      var personInfo = {} ;
+      service.sign(personInfo)
     }
   }
 }
