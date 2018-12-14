@@ -53,12 +53,26 @@ export default new Router({
 			// which is lazy-loaded when the route is visited.
 			component: () => import(/* webpackChunkName: "about" */ './views/award.vue')
 		},{
+            path: '/awardIndex',
+            name: 'awardIndex',
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import(/* webpackChunkName: "about" */ './views/awardIndex.vue')
+        },{
 			path: '/proxy',
 			name: 'proxy',
 			// route level code-splitting
 			// this generates a separate chunk (about.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
 			component: () => import(/* webpackChunkName: "about" */ './views/proxy.vue')
-		}
+		},{
+            path: '/proxy2',
+            name: 'proxy2',
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import(/* webpackChunkName: "about" */ './views/proxy2.vue')
+        }
 	]
 })

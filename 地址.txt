@@ -1,0 +1,6 @@
+图片上传 http://jichang.yoopoon.com/upload.html
+pc端抽奖 http://jichang.yoopoon.com/award.html
+pc签到 http://jichang.yoopoon.com/sign.html
+
+手机签到 http://jichang.yoopoon.com
+手机摇一摇 http://jichang.yoopoon.com/#/awardIndex
