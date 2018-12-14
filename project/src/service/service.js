@@ -25,5 +25,6 @@ const getAlbum = function(){
 export const service = {
     sign : sign ,
     postCode : postCode ,
-    getAlbum : getAlbum
+    getAlbum : getAlbum,
+    postYaoYiYaoCode : postYaoYiYaoCode
 };
