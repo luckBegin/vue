@@ -14,6 +14,9 @@ export default {
   components: {
     HelloWorld
   },
+  created(){
+	  let oid = window.location.href.match(/openid.*/g)[0].replace("openid=" , "")
+  },
   methods : {
     sign(){
       var personInfo = {} ;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GLOBAL = '' ;
+const GLOBAL = 'https://kmgoapi.yoopoon.com/api/home/' ;
 
 const getAccess = function(){
     return axios.get(GLOBAL + '/getToken', {
@@ -17,6 +17,10 @@ const postCode = function(data){
 	return axios.get(GLOBAL + "GetWdaOpenidbycode?code=" + data)
 };
 
+const userInfo = function(data){
+    return axios.get(url) ;
+}
 export const service = {
-    sign : sign 
+    sign : sign ,
+    postCode : postCode
 };
