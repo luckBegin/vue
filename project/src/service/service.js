@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const GLOBAL = '' ; 
+const GLOBAL = '' ;
 
 const getAccess = function(){
     return axios.get(GLOBAL + '/getToken', {
@@ -11,6 +11,10 @@ const getAccess = function(){
 
 const sign = function(data){
     return axios.post(GLOBAL + "instUserinfo" , data)
+};
+
+const postCode = function(data){
+	return axios.get(GLOBAL + "GetWdaOpenidbycode?code=" + data)
 };
 
 export const service = {
