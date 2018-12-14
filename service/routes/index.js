@@ -96,7 +96,7 @@ router.delete("/api/imageUpload" , function(req,res,next){
 		}else{
 			var txt = JSON.parse(text) ;
 
-			txt = txt.splice(index , 1 ) ;
+			txt.splice(index , 1 ) ;
 			fs.writeFile( jsonPath , JSON.stringify(txt) , function(err){
 				if(err){
 					res.send({

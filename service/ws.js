@@ -1,6 +1,6 @@
 const WebSocket = require('ws');
 
-const currentConnect = [] ;
+var currentConnect = [] ;
 
 const hasConnected = {} ;
 
@@ -20,9 +20,9 @@ const strategy =  {
 			if( hasConnected[data.id]){
 				console.log("current user has connected") ;
 			}else{
-				hasConnected[data.id] = true ;
-				data.count = 0 ;
-				currentConnect.push(data) ;
+				// hasConnected[data.id] = true ;
+				// data.count = 0 ;
+				// currentConnect.push(data) ;
 
 				console.log("current length is :" + currentConnect.length ) ;
 			};
@@ -58,9 +58,11 @@ const strategy =  {
 
 		var id = data.id ;
 
+
 		currentConnect.forEach( item => {
-			if(item.id === id )
-				item.count += 100 ;
+			if(item.UserWXopenId === id && item.Status === '0'){
+                item.count += 100 ;
+            }
 		});
 	} ,
 	getRank : function( data , ws){
@@ -73,6 +75,10 @@ const strategy =  {
 		var time = data.time  ;
 
 		var award = data.award ;
+
+		var list = data.list ;
+
+        currentConnect = list ;
 
 		currentConnect.forEach( item => {
 			item.count = 0 ;
@@ -99,13 +105,13 @@ const strategy =  {
 				state = 'wait' ;
 
 				WsServe.clients.forEach( ( client ) => {
-					client.send(JSON.stringify({action : 'end' , data : data }))
+					client.send(JSON.stringify({action : 'end' , data : data  , rest : currentConnect }))
 				});
 
 				hasAward = currentConnect.splice(0 , 10 ) ;
 			}else{
 				WsServe.clients.forEach( ( client ) => {
-					client.send(JSON.stringify({action : 'start' ,data : data , time : time }))
+					client.send(JSON.stringify({action : 'start' ,data : data , time : time , rest : currentConnect }))
 				});
 
 			};

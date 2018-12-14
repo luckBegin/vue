@@ -40,14 +40,16 @@ export default {
   data(){
     return {
       ws : null , 
-      info : { "name" : "1", "id" : "3" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } , 
+      info : {}  ,
       status : "wait" , 
       text : ""
     }
   },
   created(){
+    let oid = window.location.href.match(/openid.*/g)[0].replace("openid=" , "")
+    window.localStorage.oid = oid ;
     this.websocket() ;
-    window.vue = this ;
+    this.$data.info = { "id" : oid } ;
   },
   mounted () {
     let myShakeEvent = new Shake({
@@ -59,7 +61,7 @@ export default {
   },
   methods: {
       websocket () {
-          let ws = new WebSocket('ws://localhost:3000') ;
+          let ws = new WebSocket('ws://jichang.yoopoon.com/websocket') ;
           
           ws.onopen = () => {
             // Web Socket 已连接上，使用 send() 方法发送数据
@@ -82,18 +84,7 @@ export default {
               console.log('连接已关闭...')
           };
           this.$data.ws = ws ;
-          // this.send({"type" : "save"  , 'info' : { "name" : "1" , "id" : "1" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "2" , "id" : "2" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "3" , "id" : "3" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "4" , "id" : "4" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "5" , "id" : "5" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "6" , "id" : "6" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "7" , "id" : "7" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "8" , "id" : "8" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "9" , "id" : "9" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "10" , "id" : "10" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "11" , "id" : "11" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
-          // this.send({"type" : "save"  , 'info' : { "name" : "12" , "id" : "12" , img : 'http://tx.haiqq.com/uploads/allimg/150325/122H254S-1.jpg' } })
+          // this.send({"type" : "save"  , 'info' : this.$data.info })
       },
       send( data ){
         if (this.$data.ws.readyState===1) {

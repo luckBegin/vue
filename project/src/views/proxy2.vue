@@ -13,7 +13,7 @@
 			var url = window.location.href;
 			let data = url.match(/code.*&/)[0].replace("code=","").replace("&" ,"")
 			let __this = this ;
-			service.postCode(data)
+			service.postYaoYiYaoCode(data)
 				.then(
 					res => {
 						let url = res.data.Values ;

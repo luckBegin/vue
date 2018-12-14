@@ -16,11 +16,14 @@ const sign = function(data){
 const postCode = function(data){
 	return axios.get(GLOBAL + "GetWdaOpenidbycode?code=" + data)
 };
-
-const userInfo = function(data){
-    return axios.get(url) ;
+const postYaoYiYaoCode = function(data){
+    return axios.get(GLOBAL + "GetWdaYaoyiyaoOpenidBycode?code=" + data)
+};
+const getAlbum = function(){
+    return axios.get('http://jichang.yoopoon.com/api/imageUpload')
 }
 export const service = {
     sign : sign ,
-    postCode : postCode
+    postCode : postCode ,
+    getAlbum : getAlbum
 };

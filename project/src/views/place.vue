@@ -1,6 +1,5 @@
 <template>
   <div class="place">
-
   </div>
 </template>
 

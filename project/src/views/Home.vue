@@ -14,13 +14,13 @@ export default {
   components: {
     HelloWorld
   },
-  created(){
-	  let oid = window.location.href.match(/openid.*/g)[0].replace("openid=" , "")
-  },
+    created : function(){
+        let oid = window.location.href.match(/openid.*/g)[0].replace("openid=" , "")
+        window.localStorage.oid = oid ;
+    },
   methods : {
     sign(){
-      var personInfo = {} ;
-      service.sign(personInfo)
+        this.$router.push('/flow') ;
     }
   }
 }
