@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>签到</title>
     <style>
         * {
             margin: 0px;
@@ -47,7 +47,7 @@
     image.src = './default.png';
 
     var image2 = new Image();
-    image2.src = './text.png';
+    image2.src = './raw.png';
     image2.onload = function () {
         dots = getimgData("YGA");
         initAnimate();
@@ -64,7 +64,7 @@
 
     var drawText = function (text) {
         context.save()
-        context.drawImage(image2, 0, 0, image2.width, image2.width);
+        context.drawImage(image2, 0, 0);
 
         context.restore();
     };
@@ -74,8 +74,8 @@
         var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
         context.clearRect(0, 0, canvas.width, canvas.height);
         var dots = [];
-        for (var x = 0; x < imgData.width; x += 25) {
-            for (var y = 0; y < imgData.height; y += 25) {
+        for (var x = 0; x < imgData.width; x += 30) {
+            for (var y = 0; y < imgData.height; y += 30) {
                 var i = (y * imgData.width + x) * 4;
                 if (imgData.data[i] > 0) {
                     var dot = new Dot(x + 3, y + 3, 0, 3, dots.length);
@@ -110,7 +110,7 @@
                 _img = imgObj[this.index];
             else
                 _img = image;
-            context.drawImage(_img, canvas.width / 2 + (this.x - canvas.width / 2) * scale + canvas.width / 4, canvas.height / 2 + (this.y - canvas.height / 2) * scale + canvas.height / 6, 25, 25);
+            context.drawImage(_img, canvas.width / 2 + (this.x - canvas.width / 2) * scale + canvas.width / 5, canvas.height / 2 + (this.y - canvas.height / 2) * scale + canvas.height / 2.2, 29, 29);
             context.stroke()
             context.restore();
         }
@@ -133,6 +133,7 @@
 
     var derection = true;
 
+    var lastTime = 0 ;
     function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         dots.forEach(function (item, index) {

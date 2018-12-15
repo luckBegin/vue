@@ -14,6 +14,7 @@
 			const redirtion = encodeURIComponent('http://jichang.yoopoon.com/#/proxy2') ;
 			const appid = 'wx78404b09b86f020f' ;
 			const host = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${appid}&redirect_uri=${redirtion}&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect`
+            history.go(-100);
 			window.location.href = host ;
 		}
 	};

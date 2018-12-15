@@ -58,10 +58,10 @@ const strategy =  {
 
 		var id = data.id ;
 
-
+		console.log("reveive shake event with id is " + id ) ;
 		currentConnect.forEach( item => {
 			if(item.UserWXopenId === id && item.Status === '0'){
-                item.count += 100 ;
+                item.count += 1 ;
             }
 		});
 	} ,
@@ -116,8 +116,15 @@ const strategy =  {
 
 			};
 		} , 1000 ) ;
-	}
+	},
+    ping : function(){
+	    console.log("heart beat") ;
+        WsServe.clients.forEach( ( client ) => {
+            client.send(JSON.stringify({action : 'ping'}))
+        });
+    }
 } ;
+
 WsServe.on("connection" , con => {
 
 	console.log("A client has been contected") ;

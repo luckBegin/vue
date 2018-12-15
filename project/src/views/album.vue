@@ -1,13 +1,23 @@
 <template>
     <div class="metting">
         <div class="scroll-content">
-            <div class="zq-waterfall">
-                <div class="zq-waterfall-item" v-for="item in imgList">
+
+            <div class="masonry">
+                <div class="item"  v-for="item in imgList">
                     <div class="box">
-                        <img :src="'http://localhost:3000'+item.path" alt="">
+                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="">
                     </div>
                 </div>
             </div>
+
+
+            <!--<div class="zq-waterfall">-->
+                <!--<div class="zq-waterfall-item" v-for="item in imgList">-->
+                    <!--<div class="box">-->
+                        <!--<img :src="'http://jichang.yoopoon.com/static'+item.path" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
     </div>
 </template>
@@ -15,28 +25,30 @@
 <script>
     // @ is an alias to /src
     import HelloWorld from '@/components/HelloWorld.vue' ;
-    import { service } from '@/service/service.js';
+    import {service} from '@/service/service.js';
+
     export default {
         name: 'metting',
         components: {
             HelloWorld
         },
         methods: {},
-        data(){
+        data() {
             return {
-                imgList : []
+                imgList: []
             }
         },
-        created(){
-            var _this = this ;
+        created() {
+            var _this = this;
             service.getAlbum()
-                .then( res => {
-                    var data = res.data ;
-                    if(data.success == true ){
-                        _this.$data.imgList = data.data.all ;
-                    }else{
-                        alert("获取图片出错") ;
-                    };
+                .then(res => {
+                    var data = res.data;
+                    if (data.success == true) {
+                        _this.$data.imgList = data.data.all;
+                    } else {
+                        alert("获取图片出错");
+                    }
+                    ;
                 })
         }
     }
@@ -69,9 +81,11 @@
     }
 
     .box > img {
-        width: 100%;
+        width: calc(100% - 10px);
         border-radius: 0.133rem;
         display: block;
+        margin: 0 5px 5px 5px;
+        border: 1px solid #e2c588;
     }
 
     .zq-waterfall-item {
@@ -88,4 +102,7 @@
     .zq-waterfall-item:nth-child(even) {
         float: right;
     }
+
+    .masonry { column-count: 2; column-gap: 0; margin-top: 35% ;padding-bottom: 20px;}
+    .item { break-inside: avoid; box-sizing: border-box; }
 </style>

@@ -17,11 +17,11 @@ export default {
   methods : {
     flow(index){
       if(index === 1 )
-        this.$router.push( { path : "/place"})
+        this.$router.replace( { path : "/place"})
       if(index === 2 )
-        this.$router.push( { path : "/metting"})
+        this.$router.replace( { path : "/metting"})
       if(index === 3 )
-        this.$router.push( { path : "/album"})
+        this.$router.replace( { path : "/album"})
     }
   }
 }
