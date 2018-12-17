@@ -42,9 +42,7 @@
 <img src="./img/fen.gif" alt="" style="    position: absolute;z-index: 999;top: 3%;left: 15%;">
 <img src="./img/fen.gif" alt="" style="    position: absolute;z-index: 999;top: 3%;left: 28%;">
 <img src="./bg_sign.png" class="canvas_bgp">
-<a href="/enter.html" style="position: absolute;z-index: 99999;right: 0px;bottom: 25px;color: #dab98c;right: 27px;font-size: 33px;">
-    进入会场
-</a>
+<img src="./logo.png" id="img" alt="" style="position: absolute;top: 57%;width: 50%;left: 25%;display: none">
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
     var image = new Image();
@@ -145,15 +143,15 @@
             var dot = item;
             if (derection === true) {
                 if (Math.abs(dot.dx - dot.x) < 0.1 && Math.abs(dot.dy - dot.y) < 0.1 && Math.abs(dot.dz - dot.z) < 0.1) {
-                    // setTimeout(function(){
-                    //     derection = false ;
-                    // } , 10000)
+                    $("#canvas").fadeOut(function () {
+                        $("#img").fadeIn() ;
+                    }) ;
+
                 } else {
-                    dot.x = dot.x + (dot.dx - dot.x) * 0.04;
-                    dot.y = dot.y + (dot.dy - dot.y) * 0.04;
-                    dot.z = dot.z + (dot.dz - dot.z) * 0.04;
-                }
-                ;
+                    dot.x = dot.x + (dot.dx - dot.x) * 0.07;
+                    dot.y = dot.y + (dot.dy - dot.y) * 0.07;
+                    dot.z = dot.z + (dot.dz - dot.z) * 0.07;
+                };
             } else {
                 if (Math.abs(dot.tx - dot.x) < 0.1 && Math.abs(dot.ty - dot.y) < 0.1 && Math.abs(dot.tz - dot.z) < 0.1) {
                     derection = true;

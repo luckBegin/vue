@@ -26,242 +26,42 @@
 
         <div class="section">
             <span>
-                14:00
+                14:00 - 14:10
             </span>
             <span>
             </span>
             <span>
-                提示开场
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-                14:05-14:15
-            </span>
-            <span>
-            </span>
-            <span>
-                开场
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               14:15-14:25
-            </span>
-            <span>
-            </span>
-            <span>
-                领导致辞
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               14:25-14:45
-            </span>
-            <span>
-            </span>
-            <span>
-                市场推介
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-              14:45-14:55
-            </span>
-            <span>
-            </span>
-            <span>
-                第一组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-              14:55-15:00
-            </span>
-            <span>
-            </span>
-            <span>
-                昆航节目
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-                15:00-15:10
-            </span>
-            <span>
-            </span>
-            <span>
-                第二组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:10-15:15
-            </span>
-            <span>
-            </span>
-            <span>
-                南航节目
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:15-15:20
-            </span>
-            <span>
-            </span>
-            <span>
-                第一轮互动
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:20 - 15:30
-            </span>
-            <span>
-            </span>
-            <span>
-                第三组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:30 - 15:35
-            </span>
-            <span>
-            </span>
-            <span>
-                川航节目
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:35 - 15:45
-            </span>
-            <span>
-            </span>
-            <span>
-                第四组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:35 - 15:45
-            </span>
-            <span>
-            </span>
-            <span>
-                第四组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:45 - 15:50
-            </span>
-            <span>
-            </span>
-            <span>
-                瑞丽航节目
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:50 - 15:55
-            </span>
-            <span>
-            </span>
-            <span>
-                第二轮互动
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               15:55-16:05
-            </span>
-            <span>
-            </span>
-            <span>
-                第五组颁奖
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               16:05 - 16:10
-            </span>
-            <span>
-            </span>
-            <span>
-                祥鹏节目
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               16:10 - 16:20
-            </span>
-            <span>
-            </span>
-            <span>
-                第六组颁奖
+                机场集团领导致欢迎辞
             </span>
         </div>
         <div class="section">
             <span>
-               16:20 - 16:25
+                14:10 - 14:20
             </span>
             <span>
             </span>
             <span>
-                东航节目
+                云南航空市场推介
             </span>
         </div>
         <div class="section">
             <span>
-               16:25 - 16:30
+                14:10 - 16:30
             </span>
             <span>
             </span>
             <span>
-                第三轮互动
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-               16:30 - 16:35
-
-            </span>
-            <span>
-            </span>
-            <span>
-                联合节目
+                节目及颁奖仪式
             </span>
         </div>
-
         <div class="section">
             <span>
-               16 : 35
+                16:30
             </span>
             <span>
             </span>
             <span>
-                合影留念
+                活动结束
             </span>
         </div>
     </div>
@@ -284,6 +84,7 @@
         width: 100%;
         background: url('../assets/flow/metting.png') round;
         padding-bottom: 20px;
+        height: 100%;
     }
 
     .coverImage {

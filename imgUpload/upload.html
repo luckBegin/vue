@@ -93,7 +93,7 @@ var uploadImage = function($event){
                     var current = res.data.current.path ;
                     $.ajax({
                         url: "https://kmgoapi.yoopoon.com/api/home/wdaInsertImg?strImgress="+current,
-                        type: 'get',
+                        type: 'GET',
                         success: function (res) {}
                     });
                     window.location.reload() ;

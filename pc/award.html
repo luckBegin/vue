@@ -7,6 +7,8 @@
 </head>
 <body>
 <div class="container">
+    <img src="./img/fen.gif" alt="" style="position: absolute;top: 14%">
+    <img src="./img/fen.gif" alt="" style="position: absolute;top: 13%;left: 291px;">
     <div class="wrapper">
         <div class="resetTime">
             <div class="text">
@@ -15,7 +17,7 @@
                 时<br/>
             </div>
             <div id="time" onclick="start()">
-                开始
+                启动
             </div>
         </div>
 
@@ -176,8 +178,8 @@
 
             </div>
         </div>
-
     </div>
+    <img src="./img/qr.png" alt="" style="position: absolute;bottom: 10%;width: 190px;left: 21%;">
 </div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
@@ -208,7 +210,7 @@
             return
         data.forEach((item, index) => {
             if(index > 5 ){
-                var width = Math.floor(item.count / 100);
+                var width = item.count ;
                 html += "<div class='rankWrap'> <div class='rank'>" +
                     "				<div class='rankTitle'>" + (index) +
                     "				</div>" +
@@ -230,7 +232,6 @@
 
     var ws = new WebSocket('ws://jichang.yoopoon.com/websocket');
 
-
     ws.onopen = () => {
         heartCheck.reset().start();      //心跳检测重置
     };
@@ -240,7 +241,14 @@
         var message = JSON.parse(msg.data);
 
         if (message.action === 'start') {
-            document.querySelector("#time").innerText = message.time;
+            var text = message.time; ;
+
+            if(parseInt(message.time) >= 22 )
+                text = '预备' ;
+            if(parseInt(message.time) === 21 )
+                text = '开始';
+
+            document.querySelector("#time").innerText = text
 
             var topFive = message.data
             var lastFive = message.rest;
@@ -251,7 +259,7 @@
         ;
 
         if (message.action === 'end') {
-            document.querySelector("#time").innerText = "开始";
+            document.querySelector("#time").innerText = "启动";
 
             var topFive = message.data
             var lastFive = message.rest;
@@ -296,7 +304,7 @@
             method: "GET",
             success: function (data) {
                 if (data.Status === 1 && data.Values && data.Values.length > 0) {
-                    send({type: 'start', 'info': {time: 21, award: 5, list: data.Values}});
+                    send({type: 'start', 'info': {time: 25, award: 5, list: data.Values}});
                 } else {
                     alert("获取当前在线用户失败");
                 }

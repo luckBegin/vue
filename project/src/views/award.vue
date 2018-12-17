@@ -112,17 +112,25 @@ export default {
             // Web Socket 已连接上，使用 send() 方法发送数据
           }
           ws.onmessage = msg => {
+
+
             heartCheck.reset().start();
-            var message = JSON.parse(msg.data) ; 
+            var message = JSON.parse(msg.data) ;
+              var text = message.time; ;
+
+              if(parseInt(message.time) >= 22 )
+                  text = '预备' ;
+              if(parseInt(message.time) === 21 )
+                  text = '开始';
 
             if(message.action === 'start'){
               this.$data.status = 'start';
-              this.$data.text = message.time ;
+              this.$data.text = text
             };
 
             if(message.action === 'end'){
               this.$data.status = 'wait'
-              this.$data.text = message.time ;
+              this.$data.text = text;
             };
             console.log(message) ;
           }
