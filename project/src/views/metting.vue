@@ -1,29 +1,6 @@
 <template>
     <div class="metting">
         <img src="../assets/flow/title.png" alt="" class="coverImage">
-
-        <div class="section">
-            <span>
-                13:30 - 14:00
-            </span>
-            <span>
-            </span>
-            <span>
-                签到,合影,品茶区,入座
-            </span>
-        </div>
-
-        <div class="section">
-            <span>
-                13:30
-            </span>
-            <span>
-            </span>
-            <span>
-                冷餐
-            </span>
-        </div>
-
         <div class="section">
             <span>
                 14:00 - 14:10
