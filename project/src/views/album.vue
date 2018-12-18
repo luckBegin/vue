@@ -41,7 +41,9 @@
         methods: {
 			choseImage(item){
 				this.$data.img = 'http://jichang.yoopoon.com/static' + item.path ;
-				this.$data.show = true ;
+                var isAndroid = window.navigator.userAgent.indexOf('Android') > -1 ;
+                if(!isAndroid)
+                    this.$data.show = true ;
             }
         },
         data() {
@@ -83,7 +85,7 @@
         position: absolute;
         top:0px;
         left: 0px;
-        background: rgba(0, 0, 0, 0.82);
+        background: rgba(0, 0, 0, 1);
         display: flex;
         flex-direction: row;
         justify-content: center;

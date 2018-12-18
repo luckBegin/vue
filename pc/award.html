@@ -15,9 +15,7 @@
 </head>
 <body>
 <div class="container">
-    <canvas id="canvas">
 
-    </canvas>
 
     <img src="./img/fen.gif" alt="" style="position: absolute;top: 14%">
     <img src="./img/fen.gif" alt="" style="position: absolute;top: 13%;left: 291px;">
@@ -28,7 +26,7 @@
                 计<br/>
                 时<br/>
             </div>
-            <div id="time" onclick="start()">
+            <div id="time" onclick="startAward()">
                 启动
             </div>
         </div>
@@ -191,6 +189,9 @@
             </div>
         </div>
     </div>
+    <canvas id="canvas">
+
+    </canvas>
     <!--<img src="./img/qr.png" alt="" style="position: absolute;bottom: 10%;width: 190px;left: 21%;">-->
 </div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -310,7 +311,7 @@
         ;
     };
 
-    var start = function () {
+    var startAward = function () {
         $.ajax({
             url: "https://kmgoapi.yoopoon.com/api/home/GetwdaGetUserinfo",
             method: "GET",
@@ -422,7 +423,7 @@
 				_img = imgObj[this.index];
 			else
 				_img = image;
-			context.drawImage(_img, canvas.width / 1.9 + (this.x - canvas.width / 2) * scale, canvas.height / 2 + (this.y - canvas.height / 2) * scale + canvas.height / 1.6, 15, 15);
+			context.drawImage(_img, canvas.width / 1.7 + (this.x - canvas.width / 2) * scale, canvas.height / 2 + (this.y - canvas.height / 2) * scale + canvas.height / 1.6, 15, 15);
 			context.stroke()
 			context.restore();
 		}

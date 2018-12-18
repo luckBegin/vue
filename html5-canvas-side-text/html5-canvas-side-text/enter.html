@@ -14,6 +14,7 @@
         html, body {
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         .canvas_bgp {
@@ -32,7 +33,33 @@
             left: 0;
             z-index: 1;
         }
-
+        .imgBlock{
+            position: absolute;top: 50%;width: 5%;left: 50%;
+            display: none;
+        }
+        .animate{
+            animation-name: img;
+            -webkit-animation-name: img;
+            animation-duration:10s;
+            animation-timing-function : linear ;
+            -webkit-animation-timing-function : linear ;
+            -webkit-animation-duration:10s; /* Safari 和 Chrome */
+            display: block;
+            animation-iteration-count:1;
+            -webkit-animation-iteration-count:1; /* Safari 和 Chrome */
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            display: block;
+        }
+        @keyframes img {
+            0%{ transform: scale(1) }
+            50%{ transform: scale(15) }
+            60% { transform: scale(20)}
+            70% { transform: scale(24)}
+            80% { transform: scale(27)}
+            90% { transform: scale(31)}
+            100% { transform: scale(35)}
+        }
     </style>
 </head>
 <body>
@@ -42,7 +69,7 @@
 <img src="./img/fen.gif" alt="" style="    position: absolute;z-index: 999;top: 3%;left: 15%;">
 <img src="./img/fen.gif" alt="" style="    position: absolute;z-index: 999;top: 3%;left: 28%;">
 <img src="./bg_sign.png" class="canvas_bgp">
-<img src="./logo.png" id="img" alt="" style="position: absolute;top: 57%;width: 50%;left: 25%;display: none">
+<img src="./logo.png" id="img" alt="" class="imgBlock">
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
     var image = new Image();
@@ -144,7 +171,7 @@
             if (derection === true) {
                 if (Math.abs(dot.dx - dot.x) < 0.1 && Math.abs(dot.dy - dot.y) < 0.1 && Math.abs(dot.dz - dot.z) < 0.1) {
                     $("#canvas").fadeOut(function () {
-                        $("#img").fadeIn() ;
+                        $("#img").addClass("animate") ;
                     }) ;
 
                 } else {
