@@ -4,9 +4,21 @@
     <meta charset="utf-8">
     <title>抽奖</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <style>
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
+    <canvas id="canvas">
+
+    </canvas>
+
     <img src="./img/fen.gif" alt="" style="position: absolute;top: 14%">
     <img src="./img/fen.gif" alt="" style="position: absolute;top: 13%;left: 291px;">
     <div class="wrapper">
@@ -179,7 +191,7 @@
             </div>
         </div>
     </div>
-    <img src="./img/qr.png" alt="" style="position: absolute;bottom: 10%;width: 190px;left: 21%;">
+    <!--<img src="./img/qr.png" alt="" style="position: absolute;bottom: 10%;width: 190px;left: 21%;">-->
 </div>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script>
@@ -337,7 +349,159 @@
     }
     window.onbeforeunload = function() {
         ws.close();
-    }
+    };
+
+
+
+    //
+	var image = new Image();
+	var dots = [];
+	image.src = './default.png';
+
+	var image2 = new Image();
+	image2.src = './raw_small.png';
+	image2.onload = function () {
+		dots = getimgData("YGA");
+		initAnimate();
+	};
+
+	var imgObj = [];
+	var canvas = document.getElementById("canvas");
+	var context = canvas.getContext('2d');
+
+	canvas.width = document.body.clientWidth;
+	canvas.height = document.body.clientHeight;
+
+	focallength = 100;
+
+	var drawText = function (text) {
+		context.save()
+		context.drawImage(image2, 0, 0);
+
+		context.restore();
+	};
+
+	function getimgData(text) {
+		drawText(text);
+		var imgData = context.getImageData(0, 0, canvas.width, canvas.height);
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		var dots = [];
+		for (var x = 0; x < imgData.width; x += 15 ) {
+			for (var y = 0; y < imgData.height; y += 15 ) {
+				var i = (y * imgData.width + x) * 4;
+				if (imgData.data[i] > 0) {
+					var dot = new Dot(x + 3, y + 3, 0, 3, dots.length);
+					dots.push(dot);
+				}
+			}
+		}
+		return dots;
+	};
+
+	var Dot = function (centerX, centerY, centerZ, radius, index) {
+		this.dx = centerX;
+		this.dy = centerY;
+		this.dz = centerZ;
+
+		this.z = centerZ;
+		this.x = centerX;
+		this.y = centerY;
+		this.radius = radius;
+
+		this.index = index;
+	}
+
+	Dot.prototype = {
+		paint: function (index) {
+			context.save();
+			context.beginPath();
+			var scale = focallength / (focallength + this.z);
+			var _img = null;
+
+			if (imgObj[this.index])
+				_img = imgObj[this.index];
+			else
+				_img = image;
+			context.drawImage(_img, canvas.width / 1.9 + (this.x - canvas.width / 2) * scale, canvas.height / 2 + (this.y - canvas.height / 2) * scale + canvas.height / 1.6, 15, 15);
+			context.stroke()
+			context.restore();
+		}
+	};
+
+
+	function initAnimate() {
+		dots.forEach((_this, index) => {
+			_this.x = Math.random() * canvas.width;
+			_this.y = Math.random() * canvas.height;
+			_this.z = Math.random() * focallength * 2 - focallength;
+
+			_this.tx = Math.random() * canvas.width;
+			_this.ty = Math.random() * canvas.height;
+			_this.tz = Math.random() * focallength * 2 - focallength;
+			_this.paint(index);
+		});
+		animate();
+	};
+
+	var derection = true;
+
+	function animate() {
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		dots.forEach(function (item, index) {
+			var dot = item;
+			if (derection === true) {
+				if (Math.abs(dot.dx - dot.x) <= 0.1 && Math.abs(dot.dy - dot.y) <= 0.1 && Math.abs(dot.dz - dot.z) <= 0.1) {
+
+				} else {
+					dot.x = dot.x + (dot.dx - dot.x) * 0.04;
+					dot.y = dot.y + (dot.dy - dot.y) * 0.04;
+					dot.z = dot.z + (dot.dz - dot.z) * 0.04;
+				}
+				;
+			} else {
+				if (Math.abs(dot.tx - dot.x) < 0.1 && Math.abs(dot.ty - dot.y) < 0.1 && Math.abs(dot.tz - dot.z) < 0.1) {
+					derection = true;
+				} else {
+					dot.x = dot.x + (dot.tx - dot.x) * 0.03;
+					dot.y = dot.y + (dot.ty - dot.y) * 0.03;
+					dot.z = dot.z + (dot.tz - dot.z) * 0.03;
+				}
+				;
+			}
+			;
+			dot.paint(index);
+		});
+		// requestAnimationFrame(animate);
+	};
+	var timer = setInterval(function(){
+		animate() ;
+	} , 10)
+	var obj = [];
+	var start = function () {
+		$.ajax({
+			url: "https://kmgoapi.yoopoon.com/api/home/GetwdaGetUserinfo",
+			method: "GET",
+			success: function (data) {
+				if (data.Status === 1 && data.Values && data.Values.length > 0) {
+					data.Values.forEach(item => {
+						if (obj[item.UserWXopenId]) {
+						} else {
+							obj[item.UserWXopenId] = true;
+							var img = new Image();
+							img.src = item.UserWXimg;
+							img.onload = function () {
+								imgObj.push(img);
+							};
+						}
+
+					});
+				} else {
+					alert("获取当前在线用户失败");
+				}
+			}
+		})
+	};
+	start();
 </script>
 </body>
 </html>

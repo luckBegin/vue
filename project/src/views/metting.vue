@@ -60,7 +60,6 @@
     .metting {
         width: 100%;
         background: url('../assets/flow/metting.png') round;
-        padding-bottom: 20px;
         height: 100%;
     }
 

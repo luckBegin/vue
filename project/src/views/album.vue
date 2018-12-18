@@ -1,11 +1,13 @@
 <template>
     <div class="metting">
         <div class="scroll-content">
-
+            <p class="tips">
+                尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！
+            </p>
             <div class="masonry">
                 <div class="item"  v-for="item in imgList">
                     <div class="box">
-                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="">
+                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="" @click="choseImage(item)">
                     </div>
                 </div>
             </div>
@@ -18,6 +20,10 @@
                     <!--</div>-->
                 <!--</div>-->
             <!--</div>-->
+        </div>
+
+        <div class="boxWrap" v-if="show" @click="show = false ">
+            <img :src="img" alt="" class="blockImg">
         </div>
     </div>
 </template>
@@ -32,10 +38,17 @@
         components: {
             HelloWorld
         },
-        methods: {},
+        methods: {
+			choseImage(item){
+				this.$data.img = 'http://jichang.yoopoon.com/static' + item.path ;
+				this.$data.show = true ;
+            }
+        },
         data() {
             return {
-                imgList: []
+                imgList: [] ,
+                show : false ,
+                img : null
             }
         },
         created() {
@@ -47,8 +60,7 @@
                         _this.$data.imgList = data.data.all;
                     } else {
                         alert("获取图片出错");
-                    }
-                    ;
+                    };
                 })
         }
     }
@@ -64,7 +76,19 @@
         align-items: center;
         overflow: hidden;
     }
-
+    .boxWrap{
+        width: 100%;
+        height: 100%;
+        background: #000;
+        position: absolute;
+        top:0px;
+        left: 0px;
+        background: rgba(0, 0, 0, 0.82);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
     .scroll-content {
         width: 100%;
         height: 100%;
@@ -72,7 +96,7 @@
     }
 
     .zq-waterfall {
-        padding: 35% 0 0 0;
+        padding: 1% 0 0 0;
         width: 100%;
     }
 
@@ -103,6 +127,15 @@
         float: right;
     }
 
-    .masonry { column-count: 2; column-gap: 0; margin-top: 35% ;padding-bottom: 20px;}
+    .masonry { column-count: 2; column-gap: 0; margin-top: 4% ;padding-bottom: 20px;}
     .item { break-inside: avoid; box-sizing: border-box; }
+    .blockImg{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .tips{
+        color:#ccc ;
+        margin-top: 35%;
+    }
 </style>
