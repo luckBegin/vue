@@ -139,15 +139,25 @@
     var derection = true;
 
     var lastTime = 0 ;
+    var mark = false ;
     function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         dots.forEach(function (item, index) {
             var dot = item;
             if (derection === true) {
-                if (Math.abs(dot.dx - dot.x) < 0.1 && Math.abs(dot.dy - dot.y) < 0.1 && Math.abs(dot.dz - dot.z) < 0.1) {
-                    // setTimeout(function(){
-                    //     derection = false ;
-                    // } , 10000)
+                if (Math.abs(dot.dx - dot.x) <= 0.1 && Math.abs(dot.dy - dot.y) <= 0.1 && Math.abs(dot.dz - dot.z) <= 0.1) {
+                	if(mark === true ){
+						setTimeout(function(){
+							mark = false ;
+							derection = false ;
+							timer = setInterval(function(){
+								console.log(123) ;
+								animate() ;
+							} , 10)
+						} , 10000)
+						clearInterval(timer)
+                    };
+                	mark = true;
                 } else {
                     dot.x = dot.x + (dot.dx - dot.x) * 0.04;
                     dot.y = dot.y + (dot.dy - dot.y) * 0.04;
@@ -167,8 +177,11 @@
             ;
             dot.paint(index);
         });
-        requestAnimationFrame(animate);
+        // requestAnimationFrame(animate);
     };
+    var timer = setInterval(function(){
+    	animate() ;
+    } , 10)
     var obj = [];
     var start = function () {
         $.ajax({
