@@ -34,16 +34,16 @@
             z-index: 1;
         }
         .imgBlock{
-            position: absolute;top: 50%;width: 5%;left: 50%;
+            position: absolute;top: 70%;width: 5%;left: 50%;
             display: none;
         }
         .animate{
             animation-name: img;
             -webkit-animation-name: img;
-            animation-duration:10s;
+            animation-duration:5s;
             animation-timing-function : linear ;
             -webkit-animation-timing-function : linear ;
-            -webkit-animation-duration:10s; /* Safari 和 Chrome */
+            -webkit-animation-duration:5s; /* Safari 和 Chrome */
             display: block;
             animation-iteration-count:1;
             -webkit-animation-iteration-count:1; /* Safari 和 Chrome */
@@ -53,12 +53,7 @@
         }
         @keyframes img {
             0%{ transform: scale(1) }
-            50%{ transform: scale(15) }
-            60% { transform: scale(20)}
-            70% { transform: scale(24)}
-            80% { transform: scale(27)}
-            90% { transform: scale(31)}
-            100% { transform: scale(35)}
+            100% { transform: scale(10)}
         }
     </style>
 </head>
@@ -114,7 +109,7 @@
             }
         }
         return dots;
-    }
+    };
 
     var Dot = function (centerX, centerY, centerZ, radius, index) {
         this.dx = centerX;
@@ -127,7 +122,7 @@
         this.radius = radius;
 
         this.index = index;
-    }
+    };
 
     Dot.prototype = {
         paint: function (index) {
@@ -164,6 +159,7 @@
     var derection = true;
 
     var lastTime = 0 ;
+
     function animate() {
         context.clearRect(0, 0, canvas.width, canvas.height);
         dots.forEach(function (item, index) {
@@ -194,7 +190,9 @@
         });
         requestAnimationFrame(animate);
     };
+
     var obj = [];
+
     var start = function () {
         $.ajax({
             url: "https://kmgoapi.yoopoon.com/api/home/GetwdaGetUserinfo",
@@ -217,8 +215,9 @@
                     alert("获取当前在线用户失败");
                 }
             }
-        })
+        });
     };
+
     setInterval(start(), 10000);
     start();
 </script>
