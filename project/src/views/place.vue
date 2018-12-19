@@ -1,5 +1,6 @@
 <template>
   <div class="place">
+    <img src="../assets/flow/place.png" alt="" style="width: 100% ; display: block ; height: auto">
   </div>
 </template>
 
@@ -17,10 +18,8 @@ export default {
 </script>
 <style scoped>
 .place{
-  width: 100% ; 
-  height: 100% ;
-  background: url('../assets/flow/place.png') round  ; 
-  display: flex ; 
+  width: 100% ;
+  display: flex ;
   flex-direction: column ; 
   justify-content: center ;
   align-items: center
