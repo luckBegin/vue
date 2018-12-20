@@ -11,18 +11,10 @@
                     </div>
                 </div>
             </div>
-
-
-            <!--<div class="zq-waterfall">-->
-                <!--<div class="zq-waterfall-item" v-for="item in imgList">-->
-                    <!--<div class="box">-->
-                        <!--<img :src="'http://jichang.yoopoon.com/static'+item.path" alt="">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
+            <button @click="loadMore($event)" class="loadMore">点击加载更多...</button>
         </div>
 
-        <div class="boxWrap" v-if="show" @click="show = false ">
+        <div class="boxWrap" v-if="show" @click="show = false" >
             <img :src="img" alt="" class="blockImg">
         </div>
     </div>
@@ -44,22 +36,38 @@
                 var isAndroid = window.navigator.userAgent.indexOf('Android') > -1 ;
                 if(!isAndroid)
                     this.$data.show = true ;
+            },
+            loadMore($event){
+				this.page += 1 ;
+				var _this = this ;
+				$event.target.disabled = true ;
+				service.getAlbum(this.page)
+					.then(res => {
+						$event.target.disabled = false ;
+						var data = res.data;
+						if (data.success == true) {
+							_this.$data.imgList = _this.$data.imgList.concat(data.data.all);
+						} else {
+							alert("获取图片出错");
+						};
+					})
             }
         },
         data() {
             return {
                 imgList: [] ,
                 show : false ,
-                img : null
+                img : null ,
+                page : 1
             }
         },
         created() {
             var _this = this;
-            service.getAlbum()
+            service.getAlbum(this.page)
                 .then(res => {
                     var data = res.data;
                     if (data.success == true) {
-                        _this.$data.imgList = data.data.all;
+                        _this.$data.imgList = _this.$data.imgList.concat(data.data.all);
                     } else {
                         alert("获取图片出错");
                     };
@@ -139,5 +147,13 @@
     .tips{
         color:#ccc ;
         margin-top: 35%;
+    }
+    .loadMore{
+        margin-bottom: 20px;
+        border: none;
+        padding: 5px 50px;
+        border-radius: 5px;
+        background: #e4c789;
+        color: #313131;
     }
 </style>

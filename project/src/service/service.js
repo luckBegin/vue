@@ -19,8 +19,8 @@ const postCode = function(data){
 const postYaoYiYaoCode = function(data){
     return axios.get(GLOBAL + "GetWdaYaoyiyaoOpenidBycode?code=" + data)
 };
-const getAlbum = function(){
-    return axios.get('http://jichang.yoopoon.com/api/imageUpload')
+const getAlbum = function(page){
+    return axios.get('http://jichang.yoopoon.com/api/imageUpload?size=10&page=' + page )
 }
 export const service = {
     sign : sign ,
