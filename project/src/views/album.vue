@@ -1,17 +1,15 @@
 <template>
     <div class="metting">
         <div class="scroll-content">
-            <p class="tips">
-                尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！
-            </p>
             <div class="masonry">
                 <div class="item"  v-for="item in imgList">
                     <div class="box">
-                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="" @click="choseImage(item)">
+                    <img :src="'http://lijiang-api.jpgqs.cn/'+item.path" alt="" @click="choseImage(item)">
+                    <img class = 'download' src="../assets/flow/download.png" alt="" @click="choseImage(item)">
                     </div>
                 </div>
             </div>
-            <button @click="loadMore($event)" class="loadMore">点击加载更多...</button>
+            <!-- <button @click="loadMore($event)" class="loadMore">点击加载更多...</button> -->
         </div>
 
         <div class="boxWrap" v-if="show" @click="show = false" >
@@ -32,7 +30,7 @@
         },
         methods: {
 			choseImage(item){
-				this.$data.img = 'http://jichang.yoopoon.com/static' + item.path ;
+				this.$data.img = 'http://lijiang-api.jpgqs.cn' + item.path ;
                 var isAndroid = window.navigator.userAgent.indexOf('Android') > -1 ;
                 if(!isAndroid)
                     this.$data.show = true ;
@@ -112,6 +110,7 @@
 
     .box {
         margin-bottom: 0.333rem;
+        position: relative
     }
 
     .box > img {
@@ -121,7 +120,11 @@
         margin: 0 5px 5px 5px;
         border: 1px solid #e2c588;
     }
-
+    .download{
+        position: absolute;
+        bottom: -5px;
+        opacity: 0.8;
+    }
     .zq-waterfall-item {
         width: calc(50% - 8px);
         background-color: #ccc;
@@ -137,7 +140,7 @@
         float: right;
     }
 
-    .masonry { column-count: 2; column-gap: 0; margin-top: 4% ;padding-bottom: 20px;}
+    .masonry { column-count: 2; column-gap: 0; margin-top: 40% ;padding-bottom: 20px;}
     .item { break-inside: avoid; box-sizing: border-box; }
     .blockImg{
         display: block;
