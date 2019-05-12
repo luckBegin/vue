@@ -1,6 +1,7 @@
 <template>
-	<div class="container">
-	</div>
+<div>
+	
+</div>
 </template>
 <script>
 	import { service } from '@/service/service.js';

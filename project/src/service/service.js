@@ -20,7 +20,7 @@ const postYaoYiYaoCode = function(data){
     return axios.get(GLOBAL + "GetWdaYaoyiyaoOpenidBycode?code=" + data)
 };
 const getAlbum = function(){
-    return axios.get('http://jichang.yoopoon.com/api/imageUpload')
+    return axios.get('http://lijiang-api.jpgqs.cn/api/imageUpload')
 }
 export const service = {
     sign : sign ,

@@ -7,9 +7,10 @@
 </head>
 <body>
 <header>
-	<div class="banner">
+	<img src="./img/banner.png" style="width: 100%;height: 500px;">
+<!-- 	<div class="banner">
 		
-	</div>
+	</div> -->
 </header>
 <div class="tip">
 	<img src="./img/tip.png">
@@ -31,7 +32,7 @@ var makeHtml = function(index , imagePath){
 '		</div>'+
 '	</div>';
 };
-var url = 'http://jichang.yoopoon.com/api/imageUpload' ;
+var url = 'http://lijiang-api.jpgqs.cn/api/imageUpload' ;
 var delImg = function(index){
     $.ajax({
         url: url + "?id=" + index ,
@@ -56,7 +57,7 @@ var getList = function(){
 
                 var html = ''
                 list.forEach( ( item , index ) => {
-                    html += makeHtml(index , "http://jichang.yoopoon.com/static" + item.path )
+                    html += makeHtml(index , "http://lijiang-api.jpgqs.cn/" + item.path )
                 });
 
                 $(".imgList").append(html) ;
@@ -96,7 +97,7 @@ var uploadImage = function($event){
                         type: 'GET',
                         success: function (res) {}
                     });
-                    window.location.reload() ;
+                    // window.location.reload() ;
 				}else{
                     alert("上传失败") ;
 				}

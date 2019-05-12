@@ -22,8 +22,6 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post('/api/imageUpload' , upload.single('img'), function(req, res, next) {
-	console.log('-----') ;
-	console.log(req.query) ;
 	var data = { uploadTime : Date.now() , name : req.query.name , path : '/images/'+ req.query.imageName } ;
 	var jsonPath = path.join(__dirname , "../imageList.json") ;
 	fs.readFile(jsonPath, 'utf-8' , function(err , text){

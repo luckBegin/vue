@@ -10,7 +10,7 @@ export default new Router({
 		{
 			path: '/',
 			name: 'index',
-			component: Index
+			component: Home
 		},
 		{
 			path: '/home',
@@ -24,7 +24,14 @@ export default new Router({
 			// this generates a separate chunk (about.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
 			component: () => import(/* webpackChunkName: "about" */ './views/flow.vue')
-		}, {
+		},{
+            path: '/flowIntro',
+            name: 'flow',
+            // route level code-splitting
+            // this generates a separate chunk (about.[hash].js) for this route
+            // which is lazy-loaded when the route is visited.
+            component: () => import(/* webpackChunkName: "about" */ './views/flow_flow.vue')
+        }, {
 			path: '/place',
 			name: 'place',
 			// route level code-splitting

@@ -37,8 +37,8 @@ export default {
     HelloWorld
   },
     created : function(){
-        let oid = GetUrlParam(openid) ;
-        window.localStorage.oid = oid ;
+        // let oid = GetUrlParam(openid) ;
+        // window.localStorage.oid = oid ;
     },
   methods : {
     sign(){
@@ -56,9 +56,9 @@ export default {
 .sign{
   display: block;
   position: absolute;
-  top: 53%;
-  width: 36%;
+  top: 64%;
+  width: 56%;
   height: auto;
-  left: 32%;
+  left: 22%;
 }
 </style>

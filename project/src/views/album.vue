@@ -1,13 +1,14 @@
 <template>
     <div class="metting">
         <div class="scroll-content">
-            <p class="tips">
-                尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！
-            </p>
+            <!--<p class="tips">-->
+                <!--尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！-->
+            <!--</p>-->
             <div class="masonry">
                 <div class="item"  v-for="item in imgList">
                     <div class="box">
-                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="" @click="choseImage(item)">
+                    <img :src="'http://lijiang-api.jpgqs.cn/'+item.path" alt="" @click="choseImage(item)">
+                    <img class = 'download' src="../assets/flow/download.png" alt="" @click="choseImage(item)">
                     </div>
                 </div>
             </div>
@@ -40,7 +41,7 @@
         },
         methods: {
 			choseImage(item){
-				this.$data.img = 'http://jichang.yoopoon.com/static' + item.path ;
+				this.$data.img = 'http://lijiang-api.jpgqs.cn' + item.path ;
                 var isAndroid = window.navigator.userAgent.indexOf('Android') > -1 ;
                 if(!isAndroid)
                     this.$data.show = true ;
@@ -97,6 +98,11 @@
         overflow: scroll;
     }
 
+    .download{
+        position: absolute;
+        bottom: -5px;
+        opacity: 0.8;
+    }
     .zq-waterfall {
         padding: 1% 0 0 0;
         width: 100%;
@@ -104,6 +110,7 @@
 
     .box {
         margin-bottom: 0.333rem;
+        position: relative;
     }
 
     .box > img {
@@ -129,7 +136,7 @@
         float: right;
     }
 
-    .masonry { column-count: 2; column-gap: 0; margin-top: 4% ;padding-bottom: 20px;}
+    .masonry { column-count: 2; column-gap: 0; margin-top: 40% ;padding-bottom: 20px;}
     .item { break-inside: avoid; box-sizing: border-box; }
     .blockImg{
         display: block;

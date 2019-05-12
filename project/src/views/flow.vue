@@ -1,8 +1,9 @@
 <template>
   <div class="flow">
-    <img src="../assets/flow/1.png" class="flowSection" alt="" @click="flow(1)">
-    <img src="../assets/flow/2.png" class="flowSection" alt="" @click="flow(2)">
-    <img src="../assets/flow/3.png" class="flowSection" alt="" @click="flow(3)">
+    <img src="../assets/flow/1.png" class="flowSection" alt="" @click="flow(4)">
+    <img src="../assets/flow/2.png" class="flowSection" alt="" @click="flow(1)">
+    <img src="../assets/flow/3.png" class="flowSection" alt="" @click="flow(2)">
+    <img src="../assets/flow/4.png" class="flowSection" alt="" @click="flow(3)" style="margin-top: 30px">
   </div>
 </template>
 
@@ -22,6 +23,8 @@ export default {
         this.$router.replace( { path : "/metting"})
       if(index === 3 )
         this.$router.replace( { path : "/album"})
+        if(index === 4 )
+            this.$router.replace( { path : "/flowIntro"})
     }
   }
 }
@@ -45,9 +48,9 @@ export default {
   left: 32%;
 }
 .flowSection{
-  width: 80% ; 
+  width: 80%;
   height: auto;
-  display: block ; 
-  margin-bottom: 10px;
+  display: block;
+  margin-bottom: 35px;
 }
 </style>
