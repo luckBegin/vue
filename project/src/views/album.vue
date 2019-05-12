@@ -1,29 +1,20 @@
 <template>
     <div class="metting">
         <div class="scroll-content">
-            <!--<p class="tips">-->
-                <!--尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！-->
-            <!--</p>-->
+            <p class="tips">
+                尊敬的客户您好，本次活动照片我们将会同步上传，请您于12月28日前长按惠存，谢谢！
+            </p>
             <div class="masonry">
                 <div class="item"  v-for="item in imgList">
                     <div class="box">
-                    <img :src="'http://lijiang-api.jpgqs.cn/'+item.path" alt="" @click="choseImage(item)">
-                    <img class = 'download' src="../assets/flow/download.png" alt="" @click="choseImage(item)">
+                    <img :src="'http://jichang.yoopoon.com/static'+item.path" alt="" @click="choseImage(item)">
                     </div>
                 </div>
             </div>
-
-
-            <!--<div class="zq-waterfall">-->
-                <!--<div class="zq-waterfall-item" v-for="item in imgList">-->
-                    <!--<div class="box">-->
-                        <!--<img :src="'http://jichang.yoopoon.com/static'+item.path" alt="">-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
+            <button @click="loadMore($event)" class="loadMore">点击加载更多...</button>
         </div>
 
-        <div class="boxWrap" v-if="show" @click="show = false ">
+        <div class="boxWrap" v-if="show" @click="show = false" >
             <img :src="img" alt="" class="blockImg">
         </div>
     </div>
@@ -41,26 +32,42 @@
         },
         methods: {
 			choseImage(item){
-				this.$data.img = 'http://lijiang-api.jpgqs.cn' + item.path ;
+				this.$data.img = 'http://jichang.yoopoon.com/static' + item.path ;
                 var isAndroid = window.navigator.userAgent.indexOf('Android') > -1 ;
                 if(!isAndroid)
                     this.$data.show = true ;
+            },
+            loadMore($event){
+				this.page += 1 ;
+				var _this = this ;
+				$event.target.disabled = true ;
+				service.getAlbum(this.page)
+					.then(res => {
+						$event.target.disabled = false ;
+						var data = res.data;
+						if (data.success == true) {
+							_this.$data.imgList = _this.$data.imgList.concat(data.data.all);
+						} else {
+							alert("获取图片出错");
+						};
+					})
             }
         },
         data() {
             return {
                 imgList: [] ,
                 show : false ,
-                img : null
+                img : null ,
+                page : 1
             }
         },
         created() {
             var _this = this;
-            service.getAlbum()
+            service.getAlbum(this.page)
                 .then(res => {
                     var data = res.data;
                     if (data.success == true) {
-                        _this.$data.imgList = data.data.all;
+                        _this.$data.imgList = _this.$data.imgList.concat(data.data.all);
                     } else {
                         alert("获取图片出错");
                     };
@@ -98,11 +105,6 @@
         overflow: scroll;
     }
 
-    .download{
-        position: absolute;
-        bottom: -5px;
-        opacity: 0.8;
-    }
     .zq-waterfall {
         padding: 1% 0 0 0;
         width: 100%;
@@ -110,7 +112,6 @@
 
     .box {
         margin-bottom: 0.333rem;
-        position: relative;
     }
 
     .box > img {
@@ -136,7 +137,7 @@
         float: right;
     }
 
-    .masonry { column-count: 2; column-gap: 0; margin-top: 40% ;padding-bottom: 20px;}
+    .masonry { column-count: 2; column-gap: 0; margin-top: 4% ;padding-bottom: 20px;}
     .item { break-inside: avoid; box-sizing: border-box; }
     .blockImg{
         display: block;
@@ -146,5 +147,13 @@
     .tips{
         color:#ccc ;
         margin-top: 35%;
+    }
+    .loadMore{
+        margin-bottom: 20px;
+        border: none;
+        padding: 5px 50px;
+        border-radius: 5px;
+        background: #e4c789;
+        color: #313131;
     }
 </style>

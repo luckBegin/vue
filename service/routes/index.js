@@ -60,6 +60,8 @@ router.post('/api/imageUpload' , upload.single('img'), function(req, res, next) 
 
 router.get("/api/imageUpload" , function(req,res,next){
 	var jsonPath = path.join(__dirname , "../imageList.json") ;
+	var size = req.query.size ? req.query.size : 5 ;
+	var page = req.query.page ? req.query.page : 1 ;
 	fs.readFile(jsonPath, 'utf-8' , function(err , text){
 		if(err){
 			res.send({
@@ -72,7 +74,7 @@ router.get("/api/imageUpload" , function(req,res,next){
 			res.send({
 				success : true ,
 				data : {
-					all : txt
+					all : txt.slice(  size * (page -1)  , size * page )
 				},
 				msg : ""
 			}) ;
