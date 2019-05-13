@@ -77,7 +77,7 @@
     .metting {
         width: 100%;
         height: 100%;
-        background: url('../assets/flow/album.png') round;
+        background: url('../assets/flow/album.jpg') round;
         display: flex;
         flex-direction: column;
         justify-content: center;

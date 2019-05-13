@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
-    <title>云南机场</title>
+    <title>2018年丽江航空市场份额表彰奖励暨2019年丽江航空旅游推介活</title>
     <style>
       *{
         margin: 0 ;
@@ -23,12 +23,28 @@
       <strong>We're sorry but project doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-		<audio id= 'mp3' src="http://lijiang.jpgqs.cn/bgm.mp3" autoplay preload="auto"></audio>
+		<audio id= 'mp3' src="http://lijiang.jpgqs.cn/bgm.mp3" preload="auto"></audio>
 
     <!--<script src="https://cdn.bootcss.com/vConsole/3.2.0/vconsole.min.js"></script>-->
     <script src="https://cdn.bootcss.com/Swiper/4.5.0/css/swiper.min.css"></script>
     <script src="https://cdn.bootcss.com/Swiper/4.5.0/js/swiper.min.js"></script>
     <script>
+      var bgAudio = document.getElementById("mp3") ;
+
+      bgAudio.play()
+        .catch( e => {
+          console.log(e) ;
+        })
+      document.addEventListener("WeixinJSBridgeReady", function () {
+          bgAudio.play();
+      }, false);
+      // 其他应用在click/touch时触发播放
+      document.addEventListener('click', function () {
+          bgAudio.play()
+      })
+      document.addEventListener('touchstart', function () {
+          bgAudio.play()
+      })
       // let vConsole = new VConsole()
     </script>
     <!-- built files will be auto injected -->

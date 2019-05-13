@@ -6,10 +6,10 @@
             </div>
             <div class="swiper-slide bg1">
                 <div class="video">
-                    <video class="videoWrap" controls>
+                    <!-- <video class="videoWrap" controls>
                         <source src="../assets/flow/gallery/video.mp4" type="video/mp4">
                         您的浏览器不支持 video 标签。
-                    </video>
+                    </video> -->
                 </div>
             </div>
             <div class="swiper-slide bg2">

@@ -42,7 +42,7 @@ export default {
     },
   methods : {
     sign(){
-        this.$router.replace('/flow') ;
+        this.$router.push('/flow') ;
     }
   }
 }
@@ -51,7 +51,7 @@ export default {
 .home{
   width: 100% ; 
   height: 100% ;
-  background: url('../assets/bg.png') round 
+  background: url('../assets/bg.jpg') round 
 }
 .sign{
   display: block;

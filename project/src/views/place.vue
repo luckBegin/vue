@@ -1,6 +1,6 @@
 <template>
   <div class="place">
-    <img src="../assets/flow/place.png" alt="" style="width: 100% ; display: block ; height: auto">
+    <img src="../assets/flow/place.jpg" alt="" style="width: 100% ; display: block ; height: auto">
   </div>
 </template>
 

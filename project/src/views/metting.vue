@@ -1,12 +1,8 @@
 <template>
     <div class="metting">
-        <!--<img src="../assets/flow/title.png" alt="" class="coverImage">-->
-        <div style="height:200px;">
-
-        </div>
-
-        <div class="section" :class=" now > '0000' ? 'row_active' : '' ">
-            <span class = 'row row_left row_active_left1'  :class=" now > '0000' ? 'row_active_left' : '' ">
+        <img src="../assets/flow/flow_title.png" alt="" class="coverImage">
+        <div class="section" :class=" now > '150000' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '150000' ? 'row_active_left' : '' ">
                 <span>
                     5月14日
                 </span>
@@ -44,8 +40,8 @@
             </span>
         </div>
 
-          <div class="section" :class=" now > '0730' ? 'row_active' : '' ">
-            <span class = 'row row_left'  :class=" now > '0730' ? 'row_active_left' : '' ">
+          <div class="section" :class=" now > '150730' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '150730' ? 'row_active_left' : '' ">
                 <span>
                     5月15日
                 </span>
@@ -63,8 +59,8 @@
             </span>
         </div>
 
-        <div class="section"  :class=" now > '0900' ? 'row_active' : '' ">
-            <span class = 'row row_left'  :class=" now > '0900' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '150900' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '150900' ? 'row_active_left' : '' ">
                 <span>
                     09:00 - 09:15
                 </span>
@@ -82,8 +78,8 @@
             </span>
         </div>
 
- <div class="section"  :class=" now > '0915' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '09091500' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '150915' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '150915' ? 'row_active_left' : '' ">
                 <span>
                     09:15 - 09:30
                 </span>
@@ -102,8 +98,8 @@
         </div>
 
         
-        <div class="section"  :class=" now > '0930' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '0930' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '150930' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '150930' ? 'row_active_left' : '' ">
                 <span>
                     09:30 - 09:45
                 </span>
@@ -122,8 +118,8 @@
         </div>
 
 
- <div class="section"  :class=" now > '0945' ? 'row_active' : '' ">
-            <span class = 'row row_left'  :class=" now > '0945' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '150945' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '150945' ? 'row_active_left' : '' ">
                 <span>
                     09:45 - 10:45
                 </span>
@@ -143,8 +139,8 @@
 
 
 
- <div class="section"  :class=" now > '1045' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '1045' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '151045' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '151045' ? 'row_active_left' : '' ">
                 <span>
                     10:45 - 11:00
                 </span>
@@ -162,8 +158,8 @@
             </span>
         </div>
 
- <div class="section"  :class=" now > '1110' ? 'row_active' : '' " style="margin-bottom:0">
-            <span class = 'row row_left' :class=" now > '1110' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '151110' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151110' ? 'row_active_left' : '' ">
                 <span>
                     11:10 - 11:30
                 </span>
@@ -180,7 +176,397 @@
                 <span>滇西明珠花园酒店聚贤堂</span>
             </span>
         </div>
+
+        <div class="section"  :class=" now > '151130' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151130' ? 'row_active_left' : '' ">
+                <span>
+                    11:30 - 12:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    参会嘉宾沟通交流和讨论发言
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+        
+          <div class="section"  :class=" now > '151200' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151200' ? 'row_active_left' : '' ">
+                <span>
+                    12:00 - 13:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    午餐（自助餐）
+                </span>
+                <span>滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+
+ <div class="section"  :class=" now > '151600' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151600' ? 'row_active_left' : '' ">
+                <span>
+                    16:00 - 16:15
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    嘉宾入场
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+
+         <div class="section"  :class=" now > '151615' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151615' ? 'row_active_left' : '' ">
+                <span>
+                    16:15 - 16:30
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    丽江市人民政府领导致辞
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+
+         <div class="section"  :class=" now > '151630' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151630' ? 'row_active_left' : '' ">
+                <span>
+                   16:30 - 17:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    丽江市地方民航发展局通报航空公司获奖情况
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+
+ <div class="section"  :class=" now > '151700' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151700' ? 'row_active_left' : '' ">
+                <span>
+                    17:00 - 17:30
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    丽江市人民政府领导为获表彰航空公司颁奖
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+         <div class="section"  :class=" now > '151730' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151730' ? 'row_active_left' : '' ">
+                <span>
+                   17:30-19:30
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    晚宴(丽江市政府宴请)
+
+                </span>
+                <span>待定</span>
+            </span>
+        </div>
+
+        <img src="../assets/flow/lineA.png" alt="" class="coverImage">
+        <div class="section" :class=" now > '160730' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '160730' ? 'row_active_left' : '' ">
+                <span>
+                 5月16日
+                </span>
+                <span>
+                    07:30 - 09:00	
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    早餐
+                </span>
+                <span>滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+        <div class="section" :class=" now > '160900' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '160900' ? 'row_active_left' : '' ">
+                <span>
+                  09:00 - 10:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    酒店出发前往玉龙雪山景区
+                </span>
+                <span style="opacity:0"> 滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+        <div class="section" :class=" now > '161000' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161000' ? 'row_active_left' : '' ">
+                <span>
+                  10:00 - 12:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    游览考察玉龙雪山景区
+                </span>
+                <span style="opacity:0"> 滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161200' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161200' ? 'row_active_left' : '' ">
+                <span>
+                  12:00 - 14:00
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    午餐
+                </span>
+                <span> 雪厨餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161400' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161400' ? 'row_active_left' : '' ">
+                <span>
+                  14:00 - 14:20
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    前往印象丽江
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161520' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161520' ? 'row_active_left' : '' ">
+                <span>
+                  15:20 - 15:40
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    前往蓝月谷景区
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161630' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161630' ? 'row_active_left' : '' ">
+                <span>
+                 16:30 - 17:30
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    返回酒店
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161800' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161800' ? 'row_active_left' : '' ">
+                <span>
+                    18:00-20:00	
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    晚餐
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+         <img src="../assets/flow/lineB.png" alt="" class="coverImage">
+        <div class="section" :class=" now > '160730' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '160730' ? 'row_active_left' : '' ">
+                <span>
+                 5月16日
+                </span>
+                <span>
+                    07:30 - 09:00	
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    早餐
+                </span>
+                <span>滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+        <div class="section" :class=" now > '160900' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '160900' ? 'row_active_left' : '' ">
+                <span>
+                    09:00-11:30
+                </span>
+               <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    酒店出发前往老君山景区
+                </span>
+                <span style="opacity:0">滇西明珠花园酒店自助餐厅</span>
+            </span>
+        </div>
+        <div class="section" :class=" now > '161130' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161130' ? 'row_active_left' : '' ">
+                <span>
+                   11:30 - 12:30
+                </span>
+               <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    午餐
+                </span>
+                <span>老君山景区</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161230' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161230' ? 'row_active_left' : '' ">
+                <span>
+                   12:30 - 15:00
+                </span>
+               <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    游览考察老君山景区
+                </span>
+                <span style="opacity:0">老君山景区</span>
+            </span>
+        </div>
+        <div class="section" :class=" now > '161500' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161500' ? 'row_active_left' : '' ">
+                <span>
+                   15:00 - 17:30
+                </span>
+               <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    游览考察老君山景区
+                </span>
+                <span style="opacity:0">老君山景区</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '161800' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161800' ? 'row_active_left' : '' ">
+                <span>
+                    18:00-20:00	
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    晚餐
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
     </div>
+
+    
 </template>
 
 <script>
@@ -199,9 +585,10 @@
 		},
         mounted: function(){
             const date = new Date() ;
+            const day = date.getDate() ;
             const h = date.getHours()  > 10  ? date.getHours()  + '': '0' + date.getHours() ;
             const m = date.getMinutes()  > 10? date.getMinutes()  + '' : '0' + date.getMinutes() ;
-            this.$data.now = h + m ;
+            this.$data.now = day +  h + m ;
         } ,
         methods: {}
     }
@@ -209,15 +596,15 @@
 <style scoped>
     .metting {
     width: 100%;
-    background: url('../assets/flow/metting.png') round  ; 
+    background: url('../assets/flow/metting.jpg') round  ; 
     padding-bottom: 20px;
     min-height: 100%
     }
 
     .coverImage {
-        width: 100%;
-        margin-top: 10%;
-        margin-bottom: 4%;
+        width: 65%;
+        margin-top: 15%;
+        margin-bottom: 10%;
     }
 
     .section {
@@ -250,7 +637,7 @@
     display: block;
     content: "";
     width: 2px;
-    height: 48px;
+    height: 59px;
     background: #fff;
     top: 13px;
     position: relative;
