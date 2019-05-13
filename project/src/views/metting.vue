@@ -21,10 +21,29 @@
         </div>
 
         
-        <div class="section" >
-            <span class = 'row row_left'>
+        <div class="section" :class=" now > '141230' ? 'row_active' : '' ">
+            <span class = 'row row_left'   :class=" now > '141230' ? 'row_active_left' : '' ">
                 <span>
-                    待定
+                    12:30	
+                </span>
+                <span style="opacity:0">
+                    全天
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    午餐
+                </span>
+                <span>云福村</span>
+            </span>
+        </div>
+
+                <div class="section" :class=" now > '141830' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '141830' ? 'row_active_left' : '' ">
+                <span>
+                    18:30	
                 </span>
                 <span style="opacity:0">
                     全天
@@ -36,7 +55,7 @@
                 <span>
                     晚餐
                 </span>
-                <span>待定</span>
+                <span>今生丽水</span>
             </span>
         </div>
 
@@ -81,7 +100,7 @@
  <div class="section"  :class=" now > '150915' ? 'row_active' : '' ">
             <span class = 'row row_left' :class=" now > '150915' ? 'row_active_left' : '' ">
                 <span>
-                    09:15 - 09:30
+                    09:15 - 09:25
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -91,17 +110,36 @@
             </span>
             <span class="row row_right">
                 <span>
-                    丽江机场领导致辞
+                    云南机场集团公司领导致辞
                 </span>
                 <span>滇西明珠花园酒店聚贤堂</span>
             </span>
         </div>
 
         
-        <div class="section"  :class=" now > '150930' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '150930' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '150925' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '150925' ? 'row_active_left' : '' ">
                 <span>
-                    09:30 - 09:45
+                    09:25 - 09:35
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    民航丽江监管局领导致辞
+                </span>
+                <span>滇西明珠花园酒店聚贤堂</span>
+            </span>
+        </div>
+
+        <div class="section"  :class=" now > '150935' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '150935' ? 'row_active_left' : '' ">
+                <span>
+                    09:35 - 09:50
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -117,11 +155,10 @@
             </span>
         </div>
 
-
- <div class="section"  :class=" now > '150945' ? 'row_active' : '' ">
-            <span class = 'row row_left'  :class=" now > '150945' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '150950' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '150950' ? 'row_active_left' : '' ">
                 <span>
-                    09:45 - 10:45
+                    09:50 - 10:50
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -139,10 +176,10 @@
 
 
 
- <div class="section"  :class=" now > '151045' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '151045' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '151050' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '151050' ? 'row_active_left' : '' ">
                 <span>
-                    10:45 - 11:00
+                    10:50 - 11:10
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -171,7 +208,7 @@
             </span>
             <span class="row row_right">
                 <span>
-                    丽江机场与相关单位签署战略合作协议
+                    相关方单位签署战略合作协议
                 </span>
                 <span>滇西明珠花园酒店聚贤堂</span>
             </span>
@@ -401,6 +438,24 @@
                 <span style="opacity:0"> 雪厨餐厅</span>
             </span>
         </div>
+                 <div class="section" :class=" now > '161400' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '161400' ? 'row_active_left' : '' ">
+                <span>
+                  14:00 - 15:20
+                </span>
+                <span style="opacity:0">
+                    07:30 - 09:00
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    观看印象丽江演出
+                </span>
+                <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
          <div class="section" :class=" now > '161520' ? 'row_active' : '' ">
             <span class = 'row row_left row_active_left1'  :class=" now > '161520' ? 'row_active_left' : '' ">
                 <span>
@@ -453,6 +508,24 @@
                     晚餐
                 </span>
                 <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+         <div class="section" :class=" now > '170000' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '170000' ? 'row_active_left' : '' ">
+                <span>
+                    5月17日
+                </span>
+                <span>
+                    全天
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    嘉宾返程
+                </span>
+                <span>送机</span>
             </span>
         </div>
          <img src="../assets/flow/lineB.png" alt="" class="coverImage">
@@ -541,7 +614,7 @@
             </span>
             <span class="row row_right">
                 <span>
-                    游览考察老君山景区
+                    返回酒店
                 </span>
                 <span style="opacity:0">老君山景区</span>
             </span>
@@ -562,6 +635,25 @@
                     晚餐
                 </span>
                 <span style="opacity:0"> 雪厨餐厅</span>
+            </span>
+        </div>
+
+        <div class="section" :class=" now > '170000' ? 'row_active' : '' ">
+            <span class = 'row row_left row_active_left1'  :class=" now > '170000' ? 'row_active_left' : '' ">
+                <span>
+                    5月17日
+                </span>
+                <span>
+                    全天
+                </span>
+            </span>
+            <span>
+            </span>
+            <span class="row row_right">
+                <span>
+                    嘉宾返程
+                </span>
+                <span>送机</span>
             </span>
         </div>
     </div>
