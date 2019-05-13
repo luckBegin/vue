@@ -36,7 +36,7 @@
                 <span>
                     午餐
                 </span>
-                <span>云福村</span>
+                <span>云福春</span>
             </span>
         </div>
 
@@ -139,7 +139,7 @@
         <div class="section"  :class=" now > '150935' ? 'row_active' : '' ">
             <span class = 'row row_left' :class=" now > '150935' ? 'row_active_left' : '' ">
                 <span>
-                    09:35 - 09:50
+09:35-09:55
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -155,10 +155,10 @@
             </span>
         </div>
 
- <div class="section"  :class=" now > '150950' ? 'row_active' : '' ">
-            <span class = 'row row_left'  :class=" now > '150950' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '150955' ? 'row_active' : '' ">
+            <span class = 'row row_left'  :class=" now > '150955' ? 'row_active_left' : '' ">
                 <span>
-                    09:50 - 10:50
+09:55 - 10:55
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -168,7 +168,7 @@
             </span>
             <span class="row row_right">
                 <span>
-                    丽江市文旅局作丽江航空旅游市场分析及航线推介
+                    丽江机场做丽江航空旅游市场分析及航线推介
                 </span>
                 <span>滇西明珠花园酒店聚贤堂</span>
             </span>
@@ -176,10 +176,10 @@
 
 
 
- <div class="section"  :class=" now > '151050' ? 'row_active' : '' ">
-            <span class = 'row row_left' :class=" now > '151050' ? 'row_active_left' : '' ">
+ <div class="section"  :class=" now > '151110' ? 'row_active' : '' ">
+            <span class = 'row row_left' :class=" now > '151110' ? 'row_active_left' : '' ">
                 <span>
-                    10:50 - 11:10
+                    11:10 - 11:25
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -195,10 +195,11 @@
             </span>
         </div>
 
-        <div class="section"  :class=" now > '151110' ? 'row_active' : '' " >
-            <span class = 'row row_left' :class=" now > '151110' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '151125' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151125' ? 'row_active_left' : '' ">
                 <span>
-                    11:10 - 11:30
+11:25 - 11:45
+
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -214,10 +215,10 @@
             </span>
         </div>
 
-        <div class="section"  :class=" now > '151130' ? 'row_active' : '' " >
-            <span class = 'row row_left' :class=" now > '151130' ? 'row_active_left' : '' ">
+        <div class="section"  :class=" now > '151145' ? 'row_active' : '' " >
+            <span class = 'row row_left' :class=" now > '151145' ? 'row_active_left' : '' ">
                 <span>
-                    11:30 - 12:00
+                    11:45 - 12:00
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
@@ -236,7 +237,7 @@
           <div class="section"  :class=" now > '151200' ? 'row_active' : '' " >
             <span class = 'row row_left' :class=" now > '151200' ? 'row_active_left' : '' ">
                 <span>
-                    12:00 - 13:00
+                   12:00 - 13:00
                 </span>
                 <span style="opacity:0">
                     07:30 - 09:00
