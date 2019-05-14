@@ -31,7 +31,7 @@
 				if (index === 5)
 					window.location.href = 'https://x.eqxiu.com/s/GEdtovuT';
 				if (index === 6)
-					window.location.href = 'https://q.eqxiu.com/s/NfWDwoiU';
+					window.location.href = 'https://i.eqxiu.com/s/2WOXVnit';
 				// this.$router.replace( { path : "/flowIntro"})
 			}
 		}

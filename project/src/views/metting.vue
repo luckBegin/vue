@@ -508,25 +508,7 @@
                 <span>
                     晚餐
                 </span>
-                <span style="opacity:0"> 雪厨餐厅</span>
-            </span>
-        </div>
-         <div class="section" :class=" now > '170000' ? 'row_active' : '' ">
-            <span class = 'row row_left row_active_left1'  :class=" now > '170000' ? 'row_active_left' : '' ">
-                <span>
-                    5月17日
-                </span>
-                <span>
-                    全天
-                </span>
-            </span>
-            <span>
-            </span>
-            <span class="row row_right">
-                <span>
-                    嘉宾返程
-                </span>
-                <span>送机</span>
+                <span> 龙安餐厅</span>
             </span>
         </div>
          <img src="../assets/flow/lineB.png" alt="" class="coverImage">
@@ -635,11 +617,11 @@
                 <span>
                     晚餐
                 </span>
-                <span style="opacity:0"> 雪厨餐厅</span>
+                <span> 龙安餐厅</span>
             </span>
         </div>
-
-        <div class="section" :class=" now > '170000' ? 'row_active' : '' ">
+        <img src="../assets/flow/flow_title.png" alt="" class="coverImage">
+           <div class="section" :class=" now > '170000' ? 'row_active' : '' ">
             <span class = 'row row_left row_active_left1'  :class=" now > '170000' ? 'row_active_left' : '' ">
                 <span>
                     5月17日
