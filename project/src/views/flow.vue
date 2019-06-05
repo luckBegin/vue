@@ -29,9 +29,9 @@
 				if (index === 4)
 					window.location.href = 'https://e.eqxiu.com/s/JfEEUI2P';
 				if (index === 5)
-					window.location.href = 'https://x.eqxiu.com/s/GEdtovuT';
+					window.location.href = 'https://d.eqxiu.com/s/CG9m8hdj';
 				if (index === 6)
-					window.location.href = 'https://i.eqxiu.com/s/2WOXVnit';
+					window.location.href = 'https://a.eqxiu.com/s/NfWDwoiU';
 				// this.$router.replace( { path : "/flowIntro"})
 			}
 		}

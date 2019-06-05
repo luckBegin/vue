@@ -55,7 +55,7 @@
                 <span>
                     晚餐
                 </span>
-                <span>今生丽水</span>
+                <span>金生丽水</span>
             </span>
         </div>
 
@@ -344,7 +344,7 @@
                     晚宴(丽江市政府宴请)
 
                 </span>
-                <span>待定</span>
+                <span>滇西明珠花园酒店中餐厅</span>
             </span>
         </div>
 
